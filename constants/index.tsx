@@ -1,8 +1,13 @@
-import dashboard from '../public/icons/dashboard.svg'
-import documents from '../public/icons/documents.svg'
-import images from '../public/icons/images.svg'
-import video from '../public/icons/video.svg'
-import others from '../public/icons/others.svg'
+import dashboard from "../public/icons/dashboard.svg";
+import documents from "../public/icons/documents.svg";
+import images from "../public/icons/images.svg";
+import video from "../public/icons/video.svg";
+import others from "../public/icons/others.svg";
+import edit from "../public/icons/edit.svg";
+import info from "../public/icons/info.svg";
+import share from "../public/icons/share.svg";
+import download from "../public/icons/download.svg";
+import deletes from "../public/icons/delete.svg";
 
 export const navItems = [
   {
@@ -35,27 +40,27 @@ export const navItems = [
 export const actionsDropdownItems = [
   {
     label: "Rename",
-    icon: "/assets/icons/edit.svg",
+    icon: edit,
     value: "rename",
   },
   {
     label: "Details",
-    icon: "/assets/icons/info.svg",
+    icon: info,
     value: "details",
   },
   {
     label: "Share",
-    icon: "/assets/icons/share.svg",
+    icon: share,
     value: "share",
   },
   {
     label: "Download",
-    icon: "/assets/icons/download.svg",
+    icon: download,
     value: "download",
   },
   {
     label: "Delete",
-    icon: "/assets/icons/delete.svg",
+    icon: deletes,
     value: "delete",
   },
 ];
