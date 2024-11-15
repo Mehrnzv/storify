@@ -10,10 +10,10 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Storify | Storge management',
+    default: 'Storify | Storage management',
     template: 'Storify | %s'
   },
-  description: "",
+  description: "Manage your files the best way.",
 };
 
 export default function RootLayout({

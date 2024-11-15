@@ -8,6 +8,11 @@ import { Models } from "node-appwrite";
 import Thumbnail from "@/components/Thumbnail";
 import ActionDropdown from "@/components/ActionDropdown";
 import Chart from "@/components/Chart";
+import { Metadata } from "next";
+
+export const metadata:Metadata = {
+  title: "Dashboard"
+}
 
 const Dashboard = async () => {
   const [files, totalSpace] = await Promise.all([

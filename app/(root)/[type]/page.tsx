@@ -4,6 +4,21 @@ import { getFiles } from "@/lib/actions/file.actions";
 import { getFileTypesParams } from "@/lib/utils";
 import { Models } from "node-appwrite";
 
+type Params = {
+  params:{
+  slug: string
+  type: string
+  }
+}
+
+export async function generateMetadata({ params }: Params) {
+  const type = ((params)?.type as string) || "";
+
+  return {
+    title: type.charAt(0).toUpperCase() + type.slice(1)
+  }
+}
+
 const page = async ({ searchParams, params }: SearchParamProps) => {
   const type = ((await params)?.type as string) || "";
   const searchText = ((await searchParams)?.query as string) || "";

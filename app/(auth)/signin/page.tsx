@@ -1,5 +1,9 @@
 import AuthForm from "@/components/AuthForm";
-import React from "react";
+import { Metadata } from "next";
+
+export const metadata:Metadata = {
+  title: "Sign In"
+}
 
 const SignInPage = () => {
   return <AuthForm type="signin" />;
