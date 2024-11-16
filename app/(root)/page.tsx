@@ -6,7 +6,6 @@ import { Separator } from "@/components/ui/separator";
 import FormattedDateTime from "@/components/FormattedDateTime";
 import { Models } from "node-appwrite";
 import Thumbnail from "@/components/Thumbnail";
-import ActionDropdown from "@/components/ActionDropdown";
 import Chart from "@/components/Chart";
 import { Metadata } from "next";
 
@@ -87,7 +86,6 @@ const Dashboard = async () => {
                     className="caption"
                   />
                 </div>
-                <ActionDropdown file={file} />
               </div>
             </Link>
           ))}

@@ -47,7 +47,7 @@ const MobileNavigation = ({
           height={50}
           className="h-auto"
         />
-        <p className="text-lg text-brand-100">Storify</p>
+        <p className="text-xl text-brand-100">Storify</p>
       </div>
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger>
