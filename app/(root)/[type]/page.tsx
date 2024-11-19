@@ -1,7 +1,7 @@
 import Card from "@/components/Card";
 import Sort from "@/components/Sort";
-import { getFiles } from "@/lib/actions/file.actions";
-import { getFileTypesParams } from "@/lib/utils";
+import { getFiles, getTotalSpaceUsed } from "@/lib/actions/file.actions";
+import { convertFileSize, getFileTypesParams, getUsageSummary } from "@/lib/utils";
 import { Models } from "node-appwrite";
 
 type Params = {
@@ -26,16 +26,26 @@ const page = async ({ searchParams, params }: SearchParamProps) => {
 
   const types = getFileTypesParams(type) as FileType[];
 
-  const files = await getFiles({ types, searchText, sort });
+  // const files = await getFiles({ types, searchText, sort });
+
+  const [files, totalSpace] = await Promise.all([
+    getFiles({ types, searchText, sort }),
+    getTotalSpaceUsed(),
+  ]);
+
+  const usageSummary = getUsageSummary(totalSpace);
+  const filteredSummary = usageSummary.find((item) => item.title.toLowerCase() === type.toLowerCase());
 
   return (
     <div className="page-container">
       <section className="w-full">
         <h1 className="h1 capitalize">{type}</h1>
         <div className="total-size-section">
+        {filteredSummary && (
           <p className="body-1">
-            Total: <span className="h5">0 MB</span>
+            Total: <span className="h5">{convertFileSize(filteredSummary.size)}</span>
           </p>
+        )}
           <div className="sort-container">
             <p className="body-1 hidden text-light-200 sm:block">Sort by:</p>
             <Sort />
